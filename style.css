@@ -1,0 +1,458 @@
+/* CSS file for styling*/
+
+/*to get particular font style */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+/*defined primary and secondary color to reuse it*/
+:root{
+    
+    --primary-color:#22254b;
+    --secondary-color: #373b69;
+}
+
+body{
+
+    /*colour*/
+    background-color: gray;
+
+    /*font style*/
+    font-family: 'Poppins', sans-serif;
+
+    /*box model*/
+    margin: 0;
+}
+
+/*styling for search button*/
+header{
+
+    /*box model*/
+    padding:1rem;
+    display:flex;
+    justify-content: flex-end;
+
+    /*color*/
+    background-color: var(--secondary-color);
+}
+
+/*styling for search*/
+.search{
+
+    /*color*/
+    background-color: transparent;
+    color:#fff;
+
+    /*box model*/
+    border: 2px solid var(--primary-color);
+    padding:0.5rem 1rem;
+    border-radius: 50px;
+
+    /*font style*/
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+/*to remove the outline in search text box*/
+.search:focus{
+    outline:0;
+    background-color: var(--primary-color);
+}
+
+/*change color of place holder*/
+.search::placeholder{
+    color:gray;
+}
+
+/* style to display movies*/
+main{
+
+    /*display*/
+    display:flex;
+
+    /*box model*/
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+
+    /*box model*/
+    width: 300px;
+    margin: 1rem;
+    border-radius: 3px;
+    box-shadow: 0.2px 4px 5px rgba(0,0,0,0.1);
+    background-color: var(--secondary-color);
+    position:relative;
+    overflow: hidden;
+}
+
+/* style to display movies images*/
+.movie img{
+    width:100%;
+}
+
+/*styling for movie information*/
+.movie-info{
+
+    /*color*/
+    color:#eee;
+
+    /*display*/
+    display: flex;
+
+    /*box model*/
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem 1rem;
+    letter-spacing: 0.5px;
+}
+
+/*removing the margin for movie title*/
+.movie-info h3{
+    margin-top: 0;
+}
+
+.movie-info span{
+    background-color: var(--primary-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+/*color for rating*/
+.movie-info span.orange{
+    color:orange;
+}
+
+.movie-info span.green{
+    color:lightgreen;
+}
+
+.movie-info span.red{
+    color:red;
+}
+
+/*styling for overview of movie*/
+.overview{
+
+    /*box model*/
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding: 1rem;
+    max-height: 100%;
+    transform:translateY(101%);
+    transition:transform 0.3s ease-in;
+
+    /*color*/
+    background-color: #fff;
+}
+
+.movie:hover .overview{
+    transform:translateY(0)
+}
+
+/* styling the genres of movies*/
+#tags{
+
+    /*display*/
+    display:flex;
+
+    /*box model*/
+    width:80%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10px auto;
+}
+
+.tag{
+
+    /*color*/
+    color:white;
+
+    /*box model*/
+    padding:10px 20px;
+    background-color: rgb(129, 196, 28);
+    border-radius: 50px;
+    margin:5px;
+    cursor: pointer;
+
+    /*display*/
+    display:inline-block;
+    
+}
+
+/*color for selected genre of movie*/
+.tag.highlight{
+    background-color:rgb(132, 117, 218);
+}
+
+/*color for no results*/
+.no-results{
+    color:white;
+}
+
+/*styling for moving from one page to another*/
+.pagination{
+
+    /*display*/
+    display:flex;
+
+    /*box model*/
+    margin:10px 30px;
+    align-items: center;
+    justify-content: center;
+
+    /*color*/
+    color:white;
+}
+
+.page{
+
+    /*box model*/
+    padding:20px;
+    cursor:pointer;
+}
+
+.page.disabled{
+    cursor:not-allowed;
+    color:grey;
+}
+
+/*current page*/
+.current{
+
+    /*box model*/
+    padding: 10px 20px;
+    border-radius: 50%;
+    border: 5px solid orange;
+
+    /*font style*/
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/*style know more button*/
+.know-more{
+    /*color*/
+    background-color: orange;
+    color:white;
+
+    /*font style*/
+    font-size: 16px;
+    font-weight: bold;
+
+    /*box model*/
+    border:0;
+    border-radius: 50px;
+    padding: 10px 20px;
+    margin-top: 5px;
+}
+/* The Overlay (background) */
+.overlay {
+    
+    /*box model*/
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; 
+
+    /*color*/
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0, 0.9);
+   
+  }
+  
+  /* Position the content inside the overlay */
+  .overlay-content {
+
+    /*box model*/
+    position: relative;
+    top: 10%; 
+    width: 100%; 
+    text-align: center;
+    margin-top: 30px; 
+  }
+  
+  /* The navigation links inside the overlay */
+  .overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; 
+    transition: 0.3s;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+  }
+  
+  /* Position the close button (top right corner) */
+  .overlay .closebtn {
+
+    /*box model*/
+    position: absolute;
+    top: 20px;
+    right: 45px;
+
+    /*font style*/
+    font-size: 60px;
+  }
+  
+  /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+  @media screen and (max-height: 450px) {
+    .overlay a {font-size: 20px}
+    .overlay .closebtn {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+
+
+  .embed.hide{
+      display: none;
+  }
+
+  .embed.show{
+      display: inline-block;
+  }
+
+  .arrow{
+      position: absolute;
+      font-size: 40px;
+  }
+
+/*styling fo left arrow*/
+  .arrow.left-arrow{
+
+    /*box model*/
+      top:50%;
+      left:5%;
+      transform: translateY(-50%);
+  }
+
+/*styling of right arrow*/
+  .arrow.right-arrow{
+    
+    /*box model*/
+    top:50%;
+    transform: translateY(-50%);
+    right:5%;
+}
+
+.dots{
+    margin-top: 30px;
+}
+
+.dots .dot {
+
+    /*box model*/
+    padding: 5px 15px;
+    border-radius: 50%;
+    border: 5px solid var(--secondary-color);
+    margin: 5px;
+
+    /*color*/
+    color: white;
+
+    /*font style*/
+    font-size: 20px;
+    font-weight: 600;
+    
+}
+
+.dots .dot.active{
+    border-color: orange;
+}
+
+/*styling of sidebar*/
+.sidebar {
+
+    /*box model*/
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+
+    /*color*/
+    background-color: #111;
+
+  }
+  
+  .sidebar a {
+    
+    /*box model*/
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    transition: 0.3s;
+
+    /*font style*/
+    font-size: 25px;
+
+    /*color*/
+    color: #818181;
+
+    /*display*/
+    display: block;
+   
+  }
+  
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+  
+  .sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  /*styling for open button*/
+  .openbtn {
+    
+    /*font style*/
+    font-size: 20px;
+
+    /*color*/
+    background-color: #111;
+    color: white;
+
+    /*box model*/
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+  }
+  
+  .openbtn:hover {
+    background-color: #444;
+  }
+  
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+  }
