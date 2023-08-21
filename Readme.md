@@ -1,5 +1,8 @@
 # Movie dashboard application
 
+
+This application was part of my Master's Course of Front-end Web application
+
 Libraries used 
 
 Chartjs   - https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.js
