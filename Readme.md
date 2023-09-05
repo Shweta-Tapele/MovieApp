@@ -4,7 +4,7 @@
 This application was part of my Master's Course of Front-end Web application
 
 Libraries used 
-
+ReactJS
 Chartjs   - https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.js
 bootstrap - https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css
 JQuery 	  - https://code.jquery.com/jquery-3.6.0.js
